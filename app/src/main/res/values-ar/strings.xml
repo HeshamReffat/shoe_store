@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">متجر احزيه</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="login_text">تسجيل الدخول او سجل</string>
+</resources>

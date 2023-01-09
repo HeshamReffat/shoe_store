@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Shoe Store</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="login_text">Login Or Register</string>
+</resources>
