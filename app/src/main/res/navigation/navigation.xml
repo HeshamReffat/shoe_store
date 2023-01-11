@@ -22,7 +22,8 @@
         tools:layout="@layout/fragment_welcome">
         <action
             android:id="@+id/action_welcomeFragment_to_instructionFragment"
-            app:destination="@id/instructionFragment" />
+            app:destination="@id/instructionFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/instructionFragment"
@@ -31,11 +32,13 @@
         tools:layout="@layout/fragment_instruction" >
         <action
             android:id="@+id/action_instructionFragment_to_shoesListFragment"
-            app:destination="@id/shoesListFragment" />
+            app:destination="@id/shoesListFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/shoesListFragment"
         android:name="com.hishamreffat.shoestore.screens.shoes.ShoesListFragment"
-        android:label="fragment_shoes_list"
+        android:label="shoes"
         tools:layout="@layout/fragment_shoes_list" />
 </navigation>

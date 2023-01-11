@@ -1,27 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".screens.shoes.ShoesListFragment">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
 
     <ScrollView
+        android:id="@+id/shoesScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="@string/shoesScrollView">
+        android:contentDescription="@string/shoesScrollView"
+        android:scrollbarAlwaysDrawHorizontalTrack="false"
+        android:scrollbarAlwaysDrawVerticalTrack="false"
+        android:scrollbarSize="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/shoeLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:scrollbarAlwaysDrawVerticalTrack="false">
 
             <TextView
                 android:id="@+id/shoeText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ShoeNumber"
                 android:textSize="24sp" />
+
         </LinearLayout>
     </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/shoeDetailsButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        android:contentDescription="@string/go_to_shoe_details"
+        android:focusable="true"
+        android:src="@android:drawable/alert_dark_frame"
+        app:layout_constraintBottom_toBottomOf="@+id/shoesScrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="ImageContrastCheck" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -16,4 +16,6 @@
     <string name="next">Next</string>
     <string name="welcome_to_shoe_store">Welcome to shoe store</string>
     <string name="shoesScrollView">shoesScrollView</string>
+    <string name="go_to_shoe_details">Go to shoe Details</string>
+    <string name="logout">Logout</string>
 </resources>
