@@ -6,7 +6,7 @@
     <data>
         <variable
             name="shoesViewModel"
-            type="com.hishamreffat.shoestore.models.ShoeViewModel" />
+            type="com.hishamreffat.shoestore.models.shoes.ShoeViewModel" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"

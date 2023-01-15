@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_loginFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_shoesListFragment"
+            app:destination="@id/shoesListFragment" />
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
@@ -29,7 +32,7 @@
         android:id="@+id/instructionFragment"
         android:name="com.hishamreffat.shoestore.screens.onboard.InstructionFragment"
         android:label="Welcome"
-        tools:layout="@layout/fragment_instruction" >
+        tools:layout="@layout/fragment_instruction">
         <action
             android:id="@+id/action_instructionFragment_to_shoesListFragment"
             app:destination="@id/shoesListFragment"

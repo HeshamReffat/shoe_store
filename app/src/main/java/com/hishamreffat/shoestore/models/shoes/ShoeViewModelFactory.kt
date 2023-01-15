@@ -1,9 +1,9 @@
-package com.hishamreffat.shoestore.models
+package com.hishamreffat.shoestore.models.shoes
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.hishamreffat.shoestore.database.ShoeItemDatabaseDao
+import com.hishamreffat.shoestore.database.shoes.ShoeItemDatabaseDao
 
 @Suppress("UNCHECKED_CAST")
 class ShoeViewModelFactory(private val dataSource: ShoeItemDatabaseDao, private val application: Application) :

@@ -1,4 +1,4 @@
-package com.hishamreffat.shoestore.models
+package com.hishamreffat.shoestore.models.shoes
 
 import android.app.Application
 import android.util.Log
@@ -7,8 +7,8 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
-import com.hishamreffat.shoestore.database.ShoeItem
-import com.hishamreffat.shoestore.database.ShoeItemDatabaseDao
+import com.hishamreffat.shoestore.database.shoes.ShoeItem
+import com.hishamreffat.shoestore.database.shoes.ShoeItemDatabaseDao
 import kotlinx.coroutines.launch
 
 class ShoeViewModel(val database: ShoeItemDatabaseDao, application: Application) :

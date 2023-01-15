@@ -1,26 +1,26 @@
-package com.hishamreffat.shoestore.database
+package com.hishamreffat.shoestore.database.users
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [ShoeItem::class], version = 1, exportSchema = false)
-abstract class ShoeItemDatabase : RoomDatabase() {
-    abstract val shoeItemDao: ShoeItemDatabaseDao
+@Database(entities = [User::class], version = 1, exportSchema = false)
+abstract class UserDatabase : RoomDatabase() {
+    abstract val userDao: UserDatabaseDao
 
     companion object {
         @Volatile
-        private var dbInstance: ShoeItemDatabase? = null
+        private var dbInstance: UserDatabase? = null
 
-        fun getInstance(context: Context): ShoeItemDatabase {
+        fun getInstance(context: Context): UserDatabase {
             synchronized(this) {
                 var inst = dbInstance
                 if (inst == null) {
                     inst = Room.databaseBuilder(
                         context.applicationContext,
-                        ShoeItemDatabase::class.java,
-                        "shoe_object_item_database"
+                        UserDatabase::class.java,
+                        "user_database"
                     )
                         .fallbackToDestructiveMigration()
                         .build()

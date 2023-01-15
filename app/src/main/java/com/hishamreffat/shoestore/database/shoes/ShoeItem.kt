@@ -1,4 +1,4 @@
-package com.hishamreffat.shoestore.database
+package com.hishamreffat.shoestore.database.shoes
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

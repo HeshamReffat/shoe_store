@@ -1,4 +1,4 @@
-package com.hishamreffat.shoestore.database
+package com.hishamreffat.shoestore.database.shoes
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

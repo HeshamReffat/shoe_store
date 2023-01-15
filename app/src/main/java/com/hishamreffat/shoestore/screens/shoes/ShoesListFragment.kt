@@ -1,7 +1,6 @@
 package com.hishamreffat.shoestore.screens.shoes
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuHost
@@ -9,15 +8,14 @@ import androidx.core.view.MenuProvider
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.hishamreffat.shoestore.R
-import com.hishamreffat.shoestore.database.ShoeItemDatabase
+import com.hishamreffat.shoestore.database.shoes.ShoeItemDatabase
 import com.hishamreffat.shoestore.databinding.FragmentShoesListBinding
-import com.hishamreffat.shoestore.models.ShoeViewModel
-import com.hishamreffat.shoestore.models.ShoeViewModelFactory
+import com.hishamreffat.shoestore.models.shoes.ShoeViewModel
+import com.hishamreffat.shoestore.models.shoes.ShoeViewModelFactory
 
 class ShoesListFragment : Fragment() {
     private lateinit var viewModel: ShoeViewModel
