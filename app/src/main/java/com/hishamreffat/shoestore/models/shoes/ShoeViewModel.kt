@@ -23,7 +23,7 @@ class ShoeViewModel(val database: ShoeItemDatabaseDao, application: Application)
 
     private fun parseShoeName(shoe: List<ShoeItem?>): String {
         var name: String? = null
-        Log.i("ShowListViewModel", "ShoesitemList ${shoe}")
+       // Log.i("ShowListViewModel", "ShoesitemList ${shoe}")
         shoe.forEach {
             if (it != null) {
                 name = it.shoeName

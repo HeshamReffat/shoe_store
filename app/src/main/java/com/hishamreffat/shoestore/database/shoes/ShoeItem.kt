@@ -9,5 +9,5 @@ data class ShoeItem(
     @PrimaryKey(autoGenerate = true)
     val shoeId: Long = 0L,
     @ColumnInfo("shoe_name")
-    val shoeName:String="shoe1"
+    val shoeName:String="shoe"
 )
