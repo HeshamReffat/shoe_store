@@ -3,11 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".screens.shoes.ShoesListFragment">
+    <data>
+        <variable
+            name="shoesViewModel"
+            type="com.hishamreffat.shoestore.models.ShoeViewModel" />
+    </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-
     <ScrollView
         android:id="@+id/shoesScrollView"
         android:layout_width="match_parent"
@@ -21,20 +24,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:id="@+id/shoeLinearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:scrollbarAlwaysDrawVerticalTrack="false">
-
             <TextView
                 android:id="@+id/shoeText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@{shoesViewModel.shoeItemName}"
                 android:textSize="24sp" />
 
-        </LinearLayout>
+
     </ScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

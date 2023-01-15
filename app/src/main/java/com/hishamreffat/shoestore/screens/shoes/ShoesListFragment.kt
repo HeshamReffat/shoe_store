@@ -1,6 +1,7 @@
 package com.hishamreffat.shoestore.screens.shoes
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuHost
@@ -8,6 +9,7 @@ import androidx.core.view.MenuProvider
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -33,7 +35,12 @@ class ShoesListFragment : Fragment() {
         val viewModelFactory = ShoeViewModelFactory(dataSource, application)
 
         viewModel = ViewModelProvider(this, viewModelFactory)[ShoeViewModel::class.java]
-
+//viewModel.shoes.observe(viewLifecycleOwner, Observer { shoe->
+//    shoe.forEach {
+//        Log.i("sasa", it?.shoeName ?: "notFound")
+//      //  binding.shoeText.text = it?.shoeName ?:"notFound"
+//    }
+//})
         (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(false)
         // Inflate the layout for this fragment
         val menuHost: MenuHost = requireActivity()
@@ -51,7 +58,8 @@ class ShoesListFragment : Fragment() {
                 return true
             }
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
-        binding.lifecycleOwner=this
+        binding.lifecycleOwner = this
+        binding.shoesViewModel = viewModel
         return binding.root
     }
 

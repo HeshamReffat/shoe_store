@@ -4,6 +4,7 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.hishamreffat.shoestore.database.ShoeItem
@@ -15,16 +16,18 @@ class ShoeViewModel(val database: ShoeItemDatabaseDao, application: Application)
     //data class ShoeItem(val name: String)
 
     private var _shoeList = MutableLiveData<ShoeItem>()
-    private val shoes = database.getShoes()
-    val shoeItemName = Transformations.map(shoes) { shoe ->
-        parseShoeName(shoe)
+     val shoes:LiveData<List<ShoeItem?>> = database.getShoes()
+    val shoeItemName = Transformations.map(shoes) { shoes ->
+        parseShoeName(shoes)
     }
 
     private fun parseShoeName(shoe: List<ShoeItem?>): String {
         var name: String? = null
+        Log.i("ShowListViewModel", "ShoesitemList ${shoe}")
         shoe.forEach {
             if (it != null) {
                 name = it.shoeName
+                //return  name!!
             }
         }
         return name ?: "notfound"
@@ -33,9 +36,6 @@ class ShoeViewModel(val database: ShoeItemDatabaseDao, application: Application)
     init {
         insertShoe()
         Log.i("ShowListViewModel", "ShoesViewModel Created")
-
-        Log.i("ShowListViewModel", "Shoesitem ${shoes.value}")
-
     }
 
     private suspend fun getShoeFromDatabase(): ShoeItem? {

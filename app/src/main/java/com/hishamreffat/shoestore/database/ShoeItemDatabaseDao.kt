@@ -21,7 +21,7 @@ interface ShoeItemDatabaseDao {
     @Query("DELETE FROM shoe_item_table")
     suspend fun clear()
 
-    @Query("SELECT * FROM shoe_item_table ORDER BY shoeId DESC LIMIT 10")
+    @Query("SELECT * FROM shoe_item_table ORDER BY shoeId DESC")
     fun getShoes(): LiveData<List<ShoeItem?>>
 
     @Query("SELECT * FROM shoe_item_table ORDER BY shoeId DESC LIMIT 1")
