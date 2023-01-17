@@ -53,6 +53,12 @@
     <fragment
         android:id="@+id/shoeDetailsFragment"
         android:name="com.hishamreffat.shoestore.screens.shoes.ShoeDetailsFragment"
-        android:label="fragment_shoe_details"
-        tools:layout="@layout/fragment_shoe_details" />
+        android:label="AddNewShoe"
+        tools:layout="@layout/fragment_shoe_details" >
+        <action
+            android:id="@+id/action_shoeDetailsFragment_to_shoesListFragment"
+            app:destination="@id/shoesListFragment"
+            app:popUpTo="@id/shoesListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

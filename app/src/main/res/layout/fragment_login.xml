@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.hishamreffat.shoestore.navigation.LoginFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- Constraint Layout is used to add Constraints for the buttons and editfield to -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/loginConstraint"
         android:layout_width="match_parent"

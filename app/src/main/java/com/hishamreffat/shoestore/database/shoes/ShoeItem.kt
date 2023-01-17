@@ -9,5 +9,11 @@ data class ShoeItem(
     @PrimaryKey(autoGenerate = true)
     val shoeId: Long = 0L,
     @ColumnInfo("shoe_name")
-    val shoeName:String="shoe"
+    var shoeName: String = "Shoe",
+    @ColumnInfo("shoe_company")
+    var shoeCompany: String = "Nike",
+    @ColumnInfo("shoe_size")
+    var shoeSize: Int = 30,
+    @ColumnInfo("shoe_description")
+    var shoeDescription: String = "A new designed shoe with great material for football players ",
 )

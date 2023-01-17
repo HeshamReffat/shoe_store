@@ -1,5 +1,6 @@
 package com.hishamreffat.shoestore.screens.shoes
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -22,9 +23,7 @@ import com.hishamreffat.shoestore.models.shoes.ShoeViewModelFactory
 
 
 class ShoesListFragment : Fragment() {
-    private lateinit var viewModel: ShoeViewModel
-
-
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,18 +36,19 @@ class ShoesListFragment : Fragment() {
 
         val viewModelFactory = ShoeViewModelFactory(dataSource, application)
 
-        viewModel = ViewModelProvider(this, viewModelFactory)[ShoeViewModel::class.java]
+        val viewModel = ViewModelProvider(this, viewModelFactory)[ShoeViewModel::class.java]
 
         (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(false)
         // Inflate the layout for this fragment
         viewModel.shoes.observe(viewLifecycleOwner, Observer { shoe ->
             binding.shoeLinearLayout.removeAllViews()
             shoe.forEach {
-                Log.i("fargment", "${it?.shoeName}")
+                Log.i("fragment", "${it?.shoeName}")
                 val newShoe = TextView(context)
-                newShoe.text = it?.shoeName
+                newShoe.text =
+                    "Name: ${it?.shoeName} \nCompany: ${it?.shoeCompany} \nSize: ${it?.shoeSize} \nDescription: ${it?.shoeDescription} \n"
                 newShoe.textSize = 22F
-                newShoe.gravity = Gravity.CENTER
+                newShoe.gravity = Gravity.AXIS_X_SHIFT
                 newShoe.setLayoutParams(
                     LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,
@@ -56,9 +56,6 @@ class ShoesListFragment : Fragment() {
                     ),
                 )
                 binding.shoeLinearLayout.addView(newShoe)
-//            if (newShoe.getParent() != null) {
-//                (newShoe.getParent() as ViewGroup).removeView(newShoe) // <- fix
-                //}
             }
         })
         binding.shoeDetailsButton.setOnClickListener {
@@ -86,6 +83,5 @@ class ShoesListFragment : Fragment() {
         binding.shoesViewModel = viewModel
         return binding.root
     }
-
 
 }

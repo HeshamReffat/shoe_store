@@ -1,14 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".screens.shoes.ShoeDetailsFragment">
+    <data>
+        <variable
+            name="shoeViewModel"
+            type="com.hishamreffat.shoestore.models.shoes.ShoeViewModel" />
+    </data>
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- ConstraintLayout  used to add the edit fields and button with constraints-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="AddNewShoe"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@+id/shoeNameInputLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/shoeNameInputLayout"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:paddingStart="@dimen/padding20"
+        android:paddingEnd="@dimen/padding20"
+        app:boxCornerRadiusBottomEnd="@dimen/text_filed_border_radius"
+        app:boxCornerRadiusBottomStart="@dimen/text_filed_border_radius"
+        app:boxCornerRadiusTopEnd="@dimen/text_filed_border_radius"
+        app:boxCornerRadiusTopStart="@dimen/text_filed_border_radius"
+        app:boxStrokeColor="@color/white"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/shoeNameTextFiled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={shoeViewModel.shoeName}"
+            android:hint="Name"
+            android:textColorHint="#616161"
+            tools:ignore="DuplicateClickableBoundsCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/CompanyNameInputLayout"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:paddingStart="@dimen/padding20"
+        android:paddingEnd="@dimen/padding20"
+        app:boxCornerRadiusBottomEnd="@dimen/text_filed_border_radius"
+        app:boxCornerRadiusBottomStart="@dimen/text_filed_border_radius"
+        app:boxCornerRadiusTopEnd="@dimen/text_filed_border_radius"
+        app:boxCornerRadiusTopStart="@dimen/text_filed_border_radius"
+        app:boxStrokeColor="@color/white"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shoeNameInputLayout"
+        app:layout_constraintVertical_bias="0.0">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/shoeCompanyNameTextFiled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={shoeViewModel.shoeCompany}"
+            android:hint="Company"
+            android:textColorHint="#616161" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/shoeSizeInputLayout"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:paddingStart="@dimen/padding20"
+        android:paddingEnd="@dimen/padding20"
+        app:boxCornerRadiusBottomEnd="@dimen/text_filed_border_radius"
+        app:boxCornerRadiusBottomStart="@dimen/text_filed_border_radius"
+        app:boxCornerRadiusTopEnd="@dimen/text_filed_border_radius"
+        app:boxCornerRadiusTopStart="@dimen/text_filed_border_radius"
+        app:boxStrokeColor="@color/white"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CompanyNameInputLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/shoeSizeTextFiled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={`` + shoeViewModel.shoeSize}"
+            android:hint="Size"
+            android:textColorHint="#616161" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/shoeDescriptionInputLayout"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:paddingStart="@dimen/padding20"
+        android:paddingEnd="@dimen/padding20"
+        app:boxCornerRadiusBottomEnd="@dimen/text_filed_border_radius"
+        app:boxCornerRadiusBottomStart="@dimen/text_filed_border_radius"
+        app:boxCornerRadiusTopEnd="@dimen/text_filed_border_radius"
+        app:boxCornerRadiusTopStart="@dimen/text_filed_border_radius"
+        app:boxStrokeColor="@color/white"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shoeSizeInputLayout"
+        app:layout_constraintVertical_bias="0.0">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/shoeDescriptionTextFiled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={shoeViewModel.shoeDescription}"
+            android:hint="Description"
+            android:textColorHint="#616161" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="24dp"
+        android:text="Cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/saveButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shoeDescriptionInputLayout" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="32dp"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cancelButton"
+        app:layout_constraintTop_toBottomOf="@+id/shoeDescriptionInputLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
